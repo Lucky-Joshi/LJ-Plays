@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LJ Plays</title>
   <style>
+
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #1e1e2f, #282a36);
@@ -31,6 +32,7 @@
       z-index: 1000;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     }
+
     .banner img {
       width: 40px;
       height: 40px;
@@ -38,6 +40,7 @@
       border-radius: 50%;
       border: 2px solid white;
     }
+
     .banner h1 {
       font-size: 24px;
       margin: 0;
@@ -56,6 +59,7 @@
       width: 90%;
       max-width: 400px;
     }
+
     .music-player img {
       width: 100%;
       max-height: 200px;
@@ -63,16 +67,19 @@
       margin-bottom: 15px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     }
+
     .music-player h1 {
       font-size: 22px;
       margin-bottom: 15px;
       color: #50fa7b;
     }
+
     .controls {
       display: flex;
       justify-content: center;
       margin-top: 20px;
     }
+
     .controls button {
       background: linear-gradient(135deg, #007bff, #0056b3);
       border: none;
@@ -86,10 +93,12 @@
       transition: transform 0.2s ease, background 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
+
     .controls button:hover {
       transform: scale(1.1);
       background: linear-gradient(135deg, #50fa7b, #1e90ff);
     }
+
     .progress-container {
       margin: 20px 0;
       background: #44475a;
@@ -99,11 +108,13 @@
       cursor: pointer;
       overflow: hidden;
     }
+
     .progress {
       background: linear-gradient(135deg, #50fa7b, #1e90ff);
       height: 100%;
       width: 0;
     }
+
     .loop-btn {
       margin-top: 15px;
       background: transparent;
@@ -116,10 +127,12 @@
       cursor: pointer;
       transition: background 0.3s ease, color 0.3s ease;
     }
+
     .loop-btn:hover {
       background: #50fa7b;
       color: #282a36;
     }
+
     .song-list {
       margin-top: 20px;
       text-align: left;
@@ -130,11 +143,13 @@
       padding: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
+
     .song-list ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
+
     .song-list li {
       padding: 10px;
       margin: 5px 0;
@@ -144,6 +159,7 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
+
     .song-list li:hover {
       background: #50fa7b;
       color: #282a36;
@@ -183,11 +199,13 @@
     <div class="progress-container" id="progress-container">
       <div class="progress" id="progress"></div>
     </div>
+
     <div class="controls">
       <button id="prev">⏮</button>
       <button id="play">⏯</button>
       <button id="next">⏭</button>
     </div>
+
     <button id="loop" class="loop-btn">Loop: Off</button>
     <div class="song-list">
       <ul id="song-list">
@@ -195,6 +213,7 @@
       </ul>
     </div>
   </div>
+
   <!-- Footer Section -->
   <div class="footer">
     Songs are not owned by LJ Plays
@@ -202,7 +221,7 @@
 
   <script>
     const songs = ["song1.mp3", "song2.mp3", "song3.mp3"]; 
-    const songTitles = ["Song 1", "Song 2", "Song 3"]; 
+    const songTitles = ["Victory Anthem", "Jatt Mehkma", "Millionaire"]; 
     const songImages = ["image1.jpg", "image2.jpg", "image3.jpg"];
     let songIndex = 0;
     let isLooping = false;
