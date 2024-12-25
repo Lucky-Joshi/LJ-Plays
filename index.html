@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LJ Plays</title>
@@ -182,6 +183,7 @@
       letter-spacing: 0.5px;
     }
   </style>
+
 </head>
 <body>
 
@@ -220,11 +222,13 @@
   </div>
 
   <script>
-    const songs = ["song1.mp3", "song2.mp3", "song3.mp3"]; 
+    const songs = ["song1.mp3", "song2.mp3", "song3.mp3"]; //
     const songTitles = ["Victory Anthem", "Jatt Mehkma", "Millionaire"]; 
     const songImages = ["image1.jpg", "image2.jpg", "image3.jpg"];
+
     let songIndex = 0;
     let isLooping = false;
+
     const audio = document.getElementById("audio");
     const playBtn = document.getElementById("play");
     const prevBtn = document.getElementById("prev");
@@ -236,48 +240,57 @@
     const songImage = document.getElementById("song-image");
     const songList = document.getElementById("song-list");
     let isPlaying = false;
+    
     // Load initial song
     loadSong(songIndex);
+   
     // Load song
     function loadSong(index) {
       songTitle.textContent = songTitles[index];
       songImage.src = songImages[index];
       audio.src = songs[index];
     }
+
     // Play song
     function playSong() {
       isPlaying = true;
       audio.play();
       playBtn.textContent = "⏸";
     }
+
     // Pause song
     function pauseSong() {
       isPlaying = false;
       audio.pause();
       playBtn.textContent = "⏯";
     }
+
     // Play/Pause toggle
     playBtn.addEventListener("click", () => {
       isPlaying ? pauseSong() : playSong();
     });
+
     // Next song
     nextBtn.addEventListener("click", () => {
       songIndex = (songIndex + 1) % songs.length;
       loadSong(songIndex);
       playSong();
     });
+
     // Previous song
     prevBtn.addEventListener("click", () => {
       songIndex = (songIndex - 1 + songs.length) % songs.length;
       loadSong(songIndex);
       playSong();
     });
+
     // Update progress bar
     audio.addEventListener("timeupdate", () => {
       const { currentTime, duration } = audio;
       const progressPercent = (currentTime / duration) * 100;
       progress.style.width = `${progressPercent}%`;
     });
+    
     // Seek in the song
     progressContainer.addEventListener("click", (e) => {
       const width = progressContainer.clientWidth;
@@ -285,18 +298,21 @@
       const duration = audio.duration;
       audio.currentTime = (clickX / width) * duration;
     });
+    
     // Toggle Loop
     loopBtn.addEventListener("click", () => {
       isLooping = !isLooping;
       audio.loop = isLooping;
       loopBtn.textContent = `Loop: ${isLooping ? "On" : "Off"}`;
     });
+    
     // Auto play next song (or loop if enabled)
     audio.addEventListener("ended", () => {
       if (!isLooping) {
         nextBtn.click();
       }
     });
+    
     // Populate song list
     function populateSongList() {
       songs.forEach((song, index) => {
@@ -312,5 +328,6 @@
     }
     populateSongList();
   </script>
+  
 </body>
 </html>
